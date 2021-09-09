@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div *ngIf="errorStatus" class="alert alert-danger text-center">
+        Incorrect Username or Password
+    </div>
+    <div class="row main-content bg-success text-center">
+        <div class="col-md-4 text-center company__info">
+            <span class="company__logo"></span>
+            <h4 class="company_title">ESTOCK MARKET</h4>
+        </div>
+        <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+            <div class="container-fluid">
+                <div class="row">
+                    <h2>Log In</h2>
+                </div>
+                <div class="row">
+                    <form [formGroup]="loginForm" control="" class="form-group" (submit)="send(loginForm)"> 
+                        <div class="row">
+                            <input type="text" name="emailId" id="emailId" formControlName="emailId" class="form__input" placeholder="EmailId">
+                        </div>
+                        <div class="row">
+                            <!-- <span class="fa fa-lock"></span> -->
+                            <input type="password" name="password" id="password" formControlName="password"  class="form__input" placeholder="Password">
+                        </div>
+                        <div class="row">
+                            <!-- <input type="submit" value="Submit" class="btn"> -->
+                            <button class="btn btn-primary" [disabled]="!loginForm.valid" >Login</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <p>Don't have an account? <a href="/register">Register Here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<!-- <div class="container-fluid text-center footer">
+    Coded with &hearts; by <a href="https://bit.ly/yinkaenoch">Yinka.</a></p>
+</div> -->

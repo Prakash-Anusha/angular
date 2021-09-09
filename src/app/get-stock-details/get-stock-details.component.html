@@ -1,0 +1,86 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand">EStock <i class="fa fa-line-chart" aria-hidden="true"></i></a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <button class="btn btn-secondary btn-lg wow"  role="button" (click)='addCompany()'>Add Company</button>
+                <button class="btn btn-secondary btn-lg wow"  role="button" (click)='getCompany()'>View Companies</button>
+                <button class="btn btn-secondary btn-lg wow"  role="button" (click)='addStock()'>Add Stock</button>
+                <button class="btn btn-secondary btn-lg wow"  role="button" (click)='getStock()'>View Stock</button>
+                <button class="btn btn-secondary btn-lg wow"  role="button" (click)='getCompanies()'>View Company</button>
+                <button class="btn btn-secondary btn-lg wow"  role="button" (click)='logout()'>LogOut</button>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+<div class="container jumbotron">
+     <h2 class="text-center"> VIEW STOCK DETAILS</h2>
+     <div class="stock-view-form text-center">
+        <p>
+            Choose a start and end date to view stocks for a company
+        </p>
+        <br>
+        <form [formGroup]="stockForm" (submit)="viewStocks(stockForm)">
+            <div class="row">
+                <div class="stock-filed-wrapper col-lg-12 form-group ">
+                    <label for="companyCode">CompanyCode</label>
+                    <input type="text" id="companyCode" name="companyCode" formControlName="companyCode" class="form-control">   
+                    <label for="from">From</label>
+                    <input type="date"  class="form-control" id="from"  value = "{{stockForm.value.from | date : 'yyyy-MM-dd'}}"  formControlName="from" name="from">
+                    <label for="to">To</label>
+                    <input type="date"  class="form-control" id="to" value = "{{stockForm.value.to | date : 'yyyy-MM-dd'}}"  formControlName="to" name="to">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <div id="card-container" *ngIf="isPresent">
+            <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+                    <a href="">
+                        <h3>Company Code : {{ companyCodeOut }}</h3>
+                        <div *ngFor="let stock of stocks.stockPriceList">
+                        <div class="card-flyer">
+                            <div class="text-box">
+                                <div class="text-container">
+                                    <h3>Stock Price : {{ stock.stockPrice }}</h3>
+                                    <h3>Created Date : {{ stock.date }}</h3>
+                                </div>
+                             </div>
+                        </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <table class="table table-striped" *ngIf="tableShow">
+        <thead>
+          <tr>
+            
+            <th scope="col">Max Stock Price</th>
+            <th scope="col">Min Stock Price</th>
+            <th scope="col">Avg Stock Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            
+            <td>{{ stocks.maxStockPrice }}</td>
+            <td>{{ stocks.minStockPrice }}</td>
+            <td>{{ stocks.avgStockPrice }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

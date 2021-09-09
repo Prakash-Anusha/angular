@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand">EStock <i class="fa fa-line-chart" aria-hidden="true"></i></a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <button class="btn btn-secondary btn-lg wow"  role="button" (click)='addCompany()'>Add Company</button>
+        <button class="btn btn-secondary btn-lg wow"  role="button" (click)='getCompany()'>View Companies</button>
+        <button class="btn btn-secondary btn-lg wow"  role="button" (click)='addStock()'>Add Stock</button>
+        <button class="btn btn-secondary btn-lg wow"  role="button" (click)='getStock()'>View Stock</button>
+        <button class="btn btn-secondary btn-lg wow"  role="button" (click)='getCompanies()'>View Company</button>
+        <button class="btn btn-secondary btn-lg wow"  role="button" (click)='logout()'>LogOut</button>
+      </div>
+    </div>
+  </nav>
+<hr>
+
+
+
+
+<div class="container">
+    <h4 class="text-center1">Search here the company</h4>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholer="Enter keyword for your search" [(ngModel)]="searchKeyword">
+    </div>
+
+    <!-- <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Company Code</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Company CEO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let company of companies | filter:searchKeyword">
+                <td>{{company.companyCode}}</td>
+                <td>{{company.companyName}}</td>
+                <td>{{company.companyCeo}}</td>
+            </tr>
+        </tbody>
+    </table> -->
+    <div id="card-container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+                    <a href="">
+                        <div *ngFor="let company of companies | filter:searchKeyword">
+                            <div class="card-flyer">
+                                <div class="text-box">
+                                    <div class="text-container">
+                                        <h6>Company Code : {{ company.companyCode }}</h6>
+                                        <h4>Company Name : {{ company.companyName }}</h4>
+                                        <p>Company Ceo : {{ company.companyCeo }}</p>
+                                        <p>Company Turnover : {{ company.companyTurnover }}</p>
+                                        <p>Company Website : {{ company.companyWebsite }}</p>
+                                        <p>StockExchange : {{ company.stockExchangess }}</p>
+                                        <p>StockPrice : {{ company.stockPrice }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+</div>

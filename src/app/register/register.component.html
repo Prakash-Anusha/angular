@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div *ngIf="status" class="alert alert-success alert-dismissible text-center">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong class="text-center">Your details are submitted successfully. &nbsp;<a routerLink="/login" >Login </a>here</strong>
+    </div>
+    <div *ngIf="errorStatus" class="alert alert-danger text-center">
+        User Already Exits.Proceed with login<a routerLink="/login" >Login</a>
+    </div>
+    
+    <div class="row main-content bg-success text-center">
+        <div class="col-md-4 text-center company__info">
+            <span class="company__logo"></span>
+            <h4 class="company_title">ESTOCK MARKET</h4>
+        </div>
+        <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+            <div class="container-fluid">
+                <div class="row">
+                    <h2>Registration</h2>
+                </div>
+                <div class="row">
+                    <form [formGroup]="registerForm" control="" class="form-group" (submit)="send(registerForm)">
+                        <div class="row">
+                            <!-- <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i> -->
+                            <input type="text" name="username" id="username" formControlName="username" class="form__input" placeholder="Username">
+                            
+                        </div>
+                        <div class="row">
+                            <!-- <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i> -->
+                            <input type="text" name="emailId" id="emailId" formControlName="emailId" class="form__input" placeholder="Email Id">
+                        </div>
+                        <div class="row">
+                            <!-- <i class="fa fa-key icon"></i> -->
+                            <input type="password" name="password" id="password" formControlName="password" class="form__input" placeholder="Password">
+                        </div>
+                        <div class="row">
+                            <!-- <i class="fa fa-key icon"></i> -->
+                            <input type="password" name="confirmPassword" formControlName="confirmPassword" id="confirmPassword" class="form__input" placeholder="Confirm Password">
+                        </div>
+                        <div class="row">
+                            <!-- <input type="submit" value="Register" class="btn"> -->
+                            <button class="btn btn-primary" [disabled]="!registerForm.valid" >Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+
+     <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand">EStock <i class="fa fa-line-chart" aria-hidden="true"></i></a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <button class="btn btn-secondary btn-lg wow"  role="button" (click)='addCompany()'>Add Company</button>
+            <button class="btn btn-secondary btn-lg wow"  role="button" (click)='getCompany()'>View Companies</button>
+            <button class="btn btn-secondary btn-lg wow"  role="button" (click)='addStock()'>Add Stock</button>
+            <button class="btn btn-secondary btn-lg wow"  role="button" (click)='getStock()'>View Stock</button>
+            <button class="btn btn-secondary btn-lg wow"  role="button" (click)='getCompanies()'>View Company</button>
+            <button class="btn btn-secondary btn-lg wow"  role="button" (click)='logout()'>LogOut</button>
+          </div>
+        </div>
+      </nav>
+
+
+<div class="container">
+    <form [formGroup]="stockForm" (submit)="send(stockForm)">
+        <h2 class="text-center">
+            ADD STOCK DETAILS
+        </h2>
+        <div *ngIf="isPresent" class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Stock Price  added successfully!!!</strong>
+          </div>
+        <div class="row jumbotron">
+            <!-- <div class=" col-sm-12 form-group">
+                <label for="id">STOCK ID</label> 
+                <input type="text" class="form-control" id="id"  formControlName="id" placeholder="Enter the stock Id" required>
+            </div> -->
+            <div class=" col-sm-6 form-group">
+                <label for="stockPrice">STOCK PRICE</label> 
+                <input type="text" class="form-control" id="stockPrice" formControlName="stockPrice" placeholder="Enter the stock price" required>
+            </div>
+            <div class=" col-sm-6 form-group">
+                <label for="companyCode">COMPANY CODE</label> 
+                <input type="text" class="form-control" id="companyCode" formControlName="companyCode" placeholder="Enter the company code" required>
+            </div>
+            <div class="col-sm-6 form-group mb-0 ">
+                <button class="btn btn-primary float-left " [disabled]="!stockForm.valid">ADD</button>
+            </div>
+            <div class="col-sm-6 form-group mb-0 ">
+                <input name='reset' type="reset" value='Reset' class="btn btn-primary float-right" />     
+            </div>
+        </div>
+    </form>
+</div>

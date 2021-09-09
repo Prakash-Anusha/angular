@@ -1,0 +1,61 @@
+<!-- <div class="row estock-login">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Login</h5>
+          <p class="card-text">Register the details of the company in stock market </p>
+          <button type="button" class="btn btn-success" (click)="addCompany();">Login</button>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Sign Up</h5>
+          <p class="card-text">List all the companies registered in the EStock</p>
+          <button type="button" class="btn btn-primary" (click)="getAllCompanies();">Sign Up</button>
+        </div>
+      </div>
+    </div> -->
+   
+        <!-- </div>  -->
+
+     <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand">EStock <i class="fa fa-line-chart" aria-hidden="true"></i></a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav ml-auto">
+                <!-- <a class="nav-item nav-link active" href="/add-company">Add Company <span class="sr-only">(current)</span></a> 
+                <a class="nav-item nav-link" href="/get-company">View Companies</a>
+                <a class="nav-item nav-link" href="/add-stock">Add Stock</a>
+                <a class="nav-item nav-link" href="/get-stock">View Stock</a>
+                <a class="nav-item nav-link" href="/get-companies">View Company</a>
+                <a class="nav-item nav-link" href="/dashboard">LogOut</a> -->
+
+                <button class="btn btn-secondary btn-lg wow"  role="button" (click)='addCompany()'>Add Company</button>
+                <button class="btn btn-secondary btn-lg wow"  role="button" (click)='getCompany()'>View Companies</button>
+                <button class="btn btn-secondary btn-lg wow"  role="button" (click)='addStock()'>Add Stock</button>
+                <button class="btn btn-secondary btn-lg wow"  role="button" (click)='getStock()'>View Stock</button>
+                <button class="btn btn-secondary btn-lg wow"  role="button" (click)='getCompanies()'>View Company</button>
+                <button class="btn btn-secondary btn-lg wow"  role="button" (click)='logout()'>LogOut</button>
+              </div>
+            </div>
+          </nav>
+
+          <div class="container">
+            <span>Welcome</span>
+            <span>to</span>
+            <span>our</span>
+            <span>Estock</span>
+            <span>market</span>
+      </div>
+      <div id="text-container" class="border border-secondary">
+        User can Add company details, Add stock details, View all company details, <br>
+        View all stock prices for the company with minimum, maximum, average stockprice details.
+      </div>
+
+      
